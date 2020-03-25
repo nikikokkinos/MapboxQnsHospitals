@@ -94,6 +94,10 @@ map.on('load', function() {
         use.textContent = useDisplay
       }
 
+      if (use.textContent == '10') {
+        use.textContent = 'Parking'
+      } else { use.textContent = 'Vacant' }
+
       map.on('mouseleave', 'Hospitals', function() {
         // Remove the information from the previously hovered feature from the sidebar
         address.textContent = ''

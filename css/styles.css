@@ -10,42 +10,13 @@
   z-index: 1;
   padding: 10px;
   line-height: 20px;
-  top: 2%;
-  right: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  top: 8%;
+  right: 3px;
   width: 250px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
   font-size: .8em;
-}
-
-#legendtitle {
-  background: rgba(255, 255, 255, 0.9);
-  position: absolute;
-  padding: 10px;
-  z-index: 1;
-  top: 2%;
-  right: 10px;
-  padding: 2px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
-}
-
-h3 {
-  margin: 10px;
-  font-size: .8em;
-}
-
-#legend {
-  position: absolute;
-  z-index: 1;
-  padding: 10px;
-  line-height: 20px;
-  height: 75px;
-  top: 10%;
-  right: 10px;
-  width: 180px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
 }

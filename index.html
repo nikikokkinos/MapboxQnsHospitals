@@ -10,6 +10,14 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
 
+  <!-- mapbox geocoder stylesheet -->
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
+  <!-- mapbox geocoder api -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+  <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
   <!-- My CSS -->
   <link rel="stylesheet" href="css/styles.css">
 
@@ -28,24 +36,6 @@
       <div><strong>Lot Area:</strong> <span id='sf'></span></div>
       <div><strong>Current Use:</strong> <span id='use'></span></div>
     </div>
-
-    <!-- <div id='legendtitle'>
-      <h3>MTA Bus Company & NYCTA <br /> 2018 Ridership </h3>
-    </div>
-
-    <div id='legend'>
-      <div><strong>One & Two Family Buildings:</strong> 01 </div>
-      <div><strong>Multi-Family Walk-Up Buildings:</strong> 02 </div>
-      <div><strong>Multi-Family Elevator Buildings:</strong> 03 </div>
-      <div><strong>Mixed Residential & Commercial Buildings:</strong> 04 </div>
-      <div><strong>Commercial & Office Buildings:</strong> 05 </div>
-      <div><strong>Industrial & Manufacturing Buildings:</strong> 06 </div>
-      <div><strong>Transportation & Utility:</strong> 07 </div>
-      <div><strong>Public Facilities & Institutions:</strong> 08 </div>
-      <div><strong>Open Space & Outdoor Recreation:</strong> 09 </div>
-      <div><strong>Parking:</strong> 10 </div>
-      <div><strong>Vacant Land:</strong> 11 </div>
-    </div> -->
 
 </body>
 

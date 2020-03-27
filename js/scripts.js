@@ -6,13 +6,20 @@ var map = new mapboxgl.Map({
   style: 'mapbox://styles/niki12step/ck5zuk3tb03jw1io6ug5okx5k', // my style url
   zoom: 10.3,
   minZoom: 8,
-  maxZoom: 15,
+  maxZoom: 18,
   center: [-73.832966,40.694523],
 })
 
 // adding zoom and panning control
 var nav = new mapboxgl.NavigationControl()
 map.addControl(nav, 'top-left')
+
+// adding geocoder
+map.addControl(new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl,
+    })
+  )
 
 var hospitalUrl = 'https://raw.githubusercontent.com/nikikokkinos/Data/master/PotentialHospitalLocationsQN.geojson'
 var hoveredHospitalId = null
@@ -41,7 +48,15 @@ map.on('load', function() {
     }
     })
 
-    // polygon hover effect
+  // map.on('click', 'Hospitals', function (e) {
+  //
+  //   var bounds = e.features[0].geometry.coordinates
+  //
+  //   map.fitBounds({bounds})
+  //   // var bounds = map.getSource('potentialhospitals').bounds;
+  //   // map.fitBounds(bounds);
+  // })
+
     map.on('mousemove', 'Hospitals', function(e) {
       map.getCanvas().style.cursor = 'pointer'
       if (e.features.length > 0) {

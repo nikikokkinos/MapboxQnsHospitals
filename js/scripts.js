@@ -48,13 +48,37 @@ map.on('load', function() {
     }
     })
 
-  // map.on('click', 'Hospitals', function (e) {
+  map.on('click', 'Hospitals', function (e) {
+    
+    var polygon = e.features[0].geometry.coordinates;
+    var fit = new L.Polygon(polygon).getBounds();
+    var southWest = new mapboxgl.LngLat(fit['_southWest']['lat'], fit['_southWest']['lng']);
+    var northEast = new mapboxgl.LngLat(fit['_northEast']['lat'], fit['_northEast']['lng']);
+    var center = new mapboxgl.LngLatBounds(southWest, northEast).getCenter();
+    // map.flyTo({center: center, zoom: 10});
+    map.fitBounds(new mapboxgl.LngLatBounds(southWest, northEast));
+    // var coordinates = e.features.geometry.coordinates[0];
+    // var bounds = coordinates.reduce(function (bounds, coord) {
+    //     return bounds.extend(coord);
+    // }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
+    //
+    // map.fitBounds(bounds, {
+    //     padding: 20
+    // })
+  })
+
+  // var hospitals = document.getElementById('Hospitals')
   //
-  //   var bounds = e.features[0].geometry.coordinates
+  // map.fitBounds(geojsonExtent(hospitals));
+
+  // var hospitals = document.getElementById('Hospitals')
   //
-  //   map.fitBounds({bounds})
-  //   // var bounds = map.getSource('potentialhospitals').bounds;
-  //   // map.fitBounds(bounds);
+  // var bbox = turf.extent(hospitals)
+  //
+  // var bboxDisplay = bbox.features[0].geometry.coordinates
+  //
+  // map.on('click', 'Hospitals', function () {
+  //   map.fitBounds(bboxDisplay, {padding: 20})
   // })
 
     map.on('mousemove', 'Hospitals', function(e) {

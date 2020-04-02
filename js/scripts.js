@@ -3,7 +3,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibmlraTEyc3RlcCIsImEiOiJjanZlNGFneWswMm0zNDRxc
 // adding mapbox map
 var map = new mapboxgl.Map({
   container: 'map', // container id
-  style: 'mapbox://styles/niki12step/ck5zuk3tb03jw1io6ug5okx5k', // my style url
+  style: 'mapbox://styles/niki12step/ck5ztjcqg0wb61iqteqyfu5cw', // my style url
   zoom: 10.3,
   minZoom: 8,
   maxZoom: 18,
@@ -67,7 +67,7 @@ map.on('load', function() {
     'source': 'potentialhospitals',
     'layout': {},
     'paint': {
-    'fill-color': '#088',
+    'fill-color': '#e6dc55',
     'fill-opacity':         [
           'case',
           ['boolean', ['feature-state', 'hover'], false],
@@ -188,9 +188,9 @@ map.on('load', function() {
     closeOnClick: false
   })
 
-  map.on('click', 'currentHospitals', function(e) {
+  map.on('mouseenter', 'currentHospitals', function(e) {
 
-  var currentHospitalsHTML = e.features[0].properties.Facility_Name
+  var currentHospitalsHTML = e.features[0].properties.Facility_Name + '<br >' + e.features[0].properties.Facility_Address_1
 
   currentHospitalsPopup
     .setLngLat(e.lngLat)
@@ -256,7 +256,7 @@ map.on('load', function() {
     closeOnClick: false
   })
 
-  map.on('click', 'demolishedHospitals', function(e) {
+  map.on('mouseenter', 'demolishedHospitals', function(e) {
 
   var demolishedHospitalsHTML = e.features[0].properties.ownerName + '<br >' + e.features[0].properties.address
 

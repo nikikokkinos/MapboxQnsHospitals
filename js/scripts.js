@@ -65,10 +65,15 @@ map.on('load', function() {
     'id': 'potentialHospitals',
     'type': 'fill',
     'source': 'potentialhospitals',
-    'layout': {},
+    "filter":
+      ['all',
+        ['>=', ['get', 'LotFront'], 60],
+        ['>=', ['get', 'LotDepth'], 100],
+      ],
+      // ['>=', ['number', ['get', 'LotArea']], 1000000],
     'paint': {
     'fill-color': '#e6dc55',
-    'fill-opacity':         [
+    'fill-opacity': [
           'case',
           ['boolean', ['feature-state', 'hover'], false],
           .5,
@@ -298,8 +303,6 @@ map.on('load', function() {
       }
       hoveredDemolishedId = null
     })
-
-    // document.getElementById('layerToggle').style.visibility = 'hidden'
 
     $('#layerToggleContainer').hover( function () {
       $('#layerToggle').css('visibility', 'visible'),

@@ -69,8 +69,12 @@ map.on('load', function() {
       ['all',
         ['>=', ['get', 'LotFront'], 60],
         ['>=', ['get', 'LotDepth'], 100],
+        ['==', ['get', 'Easements'], 0],
+        ['!=', ['get', 'LotType'], '2'],
+        ['!=', ['get', 'LotType'], '6'],
+        ['!=', ['get', 'LotType'], '8'],
+        ['!=', ['get', 'LotType'], '9'],
       ],
-      // ['>=', ['number', ['get', 'LotArea']], 1000000],
     'paint': {
     'fill-color': '#e6dc55',
     'fill-opacity': [

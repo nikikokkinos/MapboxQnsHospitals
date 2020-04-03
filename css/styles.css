@@ -20,3 +20,39 @@
   font-family: Arial, sans-serif;
   font-size: .8em;
 }
+
+#layerToggleContainer {
+  position: absolute;
+  z-index: 1;
+  padding: 10px;
+  line-height: 20px;
+  padding: 10px;
+  border-radius: 2px;
+  top: 2%;
+  right: 50%;
+  height: 50px;
+  width: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  background-image: url("https://img.pngio.com/graphic-design-illustration-graphics-editor-graphic-tool-layers-png-512_512.png");
+  background-size: auto;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: .8em;
+}
+
+#layerToggle {
+  position: absolute;
+  z-index: 1;
+  padding: 10px;
+  line-height: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  top: 2%;
+  right: 43%;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: .8em;
+  visibility: hidden;
+}

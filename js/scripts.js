@@ -167,9 +167,9 @@ map.on('load', function() {
     'id': 'currentHospitals',
     'type': 'circle',
     'source': 'currentHospitals',
-    // 'layout': {
-    //   'visibility': 'none',
-    // },
+    'layout': {
+      'visibility': 'none',
+    },
     'paint': {
       'circle-radius':
       [
@@ -178,7 +178,7 @@ map.on('load', function() {
         11,
         7
       ],
-      'circle-color': '#9c6dad'
+      'circle-color': '#ba24ff'
     }
   })
 
@@ -235,9 +235,9 @@ map.on('load', function() {
     'id': 'demolishedHospitals',
     'type': 'circle',
     'source': 'demolishedHospitals',
-    // 'layout': {
-    //   'visibility': 'none',
-    // },
+    'layout': {
+      'visibility': 'none',
+    },
     'paint': {
       'circle-radius':
       [
@@ -246,7 +246,7 @@ map.on('load', function() {
         11,
         7
       ],
-      'circle-color': '#8c3c3c'
+      'circle-color': '#ff2424'
     }
   })
 
@@ -297,6 +297,30 @@ map.on('load', function() {
       )
       }
       hoveredDemolishedId = null
+    })
+
+    // document.getElementById('layerToggle').style.visibility = 'hidden'
+
+    $('#layerToggleContainer').hover( function () {
+      $('#layerToggle').css('visibility', 'visible'),
+      $('#layerToggleContainer').css('visibility', 'hidden')
+      }, function(){
+      $('#layerToggle').css("visibility", "hidden"),
+      $('#layerToggleContainer').css('visibility', 'visible')
+    })
+
+    var radioButton = $('#layerToggle')
+
+    radioButton.on("click", function () {
+      if (document.getElementById('potentialHospitals').checked) {
+          map.setLayoutProperty('potentialHospitals', 'visibility', 'visible')
+      } else { map.setLayoutProperty('potentialHospitals', 'visibility', 'none')
+    } if (document.getElementById('currentHospitals').checked) {
+          map.setLayoutProperty('currentHospitals', 'visibility', 'visible')
+      } else { map.setLayoutProperty('currentHospitals', 'visibility', 'none')
+    } if (document.getElementById('demolishedHospitals').checked) {
+          map.setLayoutProperty('demolishedHospitals', 'visibility', 'visible')
+      } else { map.setLayoutProperty('demolishedHospitals', 'visibility', 'none')}
     })
 
 })

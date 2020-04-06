@@ -21,7 +21,7 @@ map.addControl(new MapboxGeocoder({
     })
   )
 
-var potentialHospitalsUrl = 'https://raw.githubusercontent.com/nikikokkinos/Data/master/PotentialHospitalLocationsQN.geojson'
+var potentialHospitalsUrl = 'https://raw.githubusercontent.com/nikikokkinos/Data/master/QnPlutoGovtLu1011La20000_2020.geojson'
 var currentHospitalsUrl = 'https://raw.githubusercontent.com/nikikokkinos/Data/master/QnsHospitals.geojson'
 var demolishedHospitalsUrl = 'https://raw.githubusercontent.com/nikikokkinos/Data/master/QnsDemolishedHospitals.geojson'
 
@@ -72,31 +72,38 @@ map.on('load', function() {
         ['==', ['get', 'Easements'], 0],
         ['!=', ['get', 'LotType'], '2'],
         ['!=', ['get', 'LotType'], '6'],
+        ['!=', ['get', 'LotType'], '7'],
         ['!=', ['get', 'LotType'], '8'],
         ['!=', ['get', 'LotType'], '9'],
+        ['!=', ['get', 'ZoneDist1'], 'PARK'],
+        ['!=', ['get', 'ZoneDist2'], 'PARK'],
+        ['!=', ['get', 'OwnerName'], 'NYC DEPARTMENT OF EDUCATION'],
+        ['!=', ['get', 'OwnerName'], 'NYC DEPARTMENT OF PARKS AND RECREATION'],
+        ['!=', ['get', 'OwnerName'], 'NYC HOUSING AUTHORITY'],
+        ['!=', ['get', 'OwnerName'], 'NYC HOUSING PRESERVATION AND DEVELOPMENT']
       ],
-    'paint': {
-    'fill-color': '#e6dc55',
-    'fill-opacity': [
-          'case',
-          ['boolean', ['feature-state', 'hover'], false],
-          .5,
-          1
-        ]
-    }
+      'paint': {
+          'fill-color': '#e6dc55',
+          'fill-opacity': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                .5,
+                1
+              ]
+          }
     })
 
   map.on('click', 'potentialHospitals', function (e) {
 
-    var polygon = e.features[0].geometry.coordinates;
-    var fit = new L.Polygon(polygon).getBounds();
-    var southWest = new mapboxgl.LngLat(fit['_southWest']['lat'], fit['_southWest']['lng']);
-    var northEast = new mapboxgl.LngLat(fit['_northEast']['lat'], fit['_northEast']['lng']);
-    var center = new mapboxgl.LngLatBounds(southWest, northEast).getCenter();
-    map.fitBounds(new mapboxgl.LngLatBounds(southWest, northEast));
+    var polygon = e.features[0].geometry.coordinates
+    var fit = new L.Polygon(polygon).getBounds()
+    var southWest = new mapboxgl.LngLat(fit['_southWest']['lat'], fit['_southWest']['lng'])
+    var northEast = new mapboxgl.LngLat(fit['_northEast']['lat'], fit['_northEast']['lng'])
+    var center = new mapboxgl.LngLatBounds(southWest, northEast).getCenter()
+    map.fitBounds(new mapboxgl.LngLatBounds(southWest, northEast))
   })
 
-  map.on('mousemove', 'potentialHospitals', function(e) {
+  map.on('mouseenter', 'potentialHospitals', function(e) {
     map.getCanvas().style.cursor = 'pointer'
     if (e.features.length > 0) {
       if (hoveredHospitalId) {
@@ -114,7 +121,6 @@ map.on('load', function() {
     })
 
   map.on('mouseleave', 'potentialHospitals', function() {
-
     if (hoveredHospitalId) {
       map.setFeatureState(
       { source: 'potentialhospitals', id: hoveredHospitalId },
@@ -212,7 +218,7 @@ map.on('load', function() {
     currentHospitalsPopup.remove();
   })
 
-  map.on('mousemove', 'currentHospitals', function(e) {
+  map.on('mouseenter', 'currentHospitals', function(e) {
     map.getCanvas().style.cursor = 'pointer'
     if (e.features.length > 0) {
       if (hoveredCurrentId) {
@@ -230,7 +236,6 @@ map.on('load', function() {
     })
 
   map.on('mouseleave', 'currentHospitals', function() {
-
     if (hoveredCurrentId) {
       map.setFeatureState(
       { source: 'currentHospitals', id: hoveredCurrentId },
@@ -280,7 +285,7 @@ map.on('load', function() {
     demolishedHospitalsPopup.remove();
   })
 
-  map.on('mousemove', 'demolishedHospitals', function(e) {
+  map.on('mouseenter', 'demolishedHospitals', function(e) {
     map.getCanvas().style.cursor = 'pointer'
     if (e.features.length > 0) {
       if (hoveredDemolishedId) {
@@ -298,7 +303,6 @@ map.on('load', function() {
     })
 
   map.on('mouseleave', 'demolishedHospitals', function() {
-
     if (hoveredDemolishedId) {
       map.setFeatureState(
       { source: 'demolishedHospitals', id: hoveredDemolishedId },
@@ -315,6 +319,21 @@ map.on('load', function() {
       $('#layerToggle').css("visibility", "hidden"),
       $('#layerToggleContainer').css('visibility', 'visible')
     })
+
+    $('#aboutBox').click( function () {
+      $('#more').show(),
+      $('#aboutBox').hide()
+      }
+      // , function() {
+      //   $('#more').hide(),
+      //   $('#aboutBox').show()
+      // }
+    )
+    // $('#aboutBox').hover( function () {
+    //   (this).css('cursor','pointer')
+    //   }, function() {
+    //       $(this).css('cursor','auto')
+    // })
 
     var radioButton = $('#layerToggle')
 

@@ -77,6 +77,7 @@ map.on('load', function() {
         ['!=', ['get', 'LotType'], '9'],
         ['!=', ['get', 'ZoneDist1'], 'PARK'],
         ['!=', ['get', 'ZoneDist2'], 'PARK'],
+        ['!=', ['get', 'OwnerName'], 'STUDIO STREET'],
         ['!=', ['get', 'OwnerName'], 'NYC DEPARTMENT OF EDUCATION'],
         ['!=', ['get', 'OwnerName'], 'NYC DEPARTMENT OF PARKS AND RECREATION'],
         ['!=', ['get', 'OwnerName'], 'NYC HOUSING AUTHORITY'],
@@ -193,6 +194,13 @@ map.on('load', function() {
         11,
         7
       ],
+      'circle-opacity':
+      [
+        'case',
+        ['boolean', ['feature-state', 'hover'], false],
+        .5,
+        1
+      ],
       'circle-color': '#ba24ff'
     }
   })
@@ -259,6 +267,13 @@ map.on('load', function() {
         ['boolean', ['feature-state', 'hover'], false],
         11,
         7
+      ],
+      'circle-opacity':
+      [
+        'case',
+        ['boolean', ['feature-state', 'hover'], false],
+        .5,
+        1
       ],
       'circle-color': '#ff2424'
     }

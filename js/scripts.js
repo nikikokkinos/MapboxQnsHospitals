@@ -11,14 +11,14 @@ var map = new mapboxgl.Map({
 })
 
 // adding zoom and panning control
-var nav = new mapboxgl.NavigationControl()
-map.addControl(nav, 'top-left')
+// var nav = new mapboxgl.NavigationControl()
+// map.addControl(nav, 'top-right')
 
-// adding geocoder
-map.addControl(new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl,
-    })
+
+map.addControl(new MapboxDirections({
+    accessToken: mapboxgl.accessToken
+    }),
+    'top-left'
   )
 
 var potentialHospitalsUrl = 'https://raw.githubusercontent.com/nikikokkinos/Data/master/QnPlutoGovtLu1011La20000_2020.geojson'

@@ -10,9 +10,8 @@
   z-index: 1;
   line-height: 20px;
   padding: 10px;
-  padding: 10px;
   border-radius: 10px;
-  top: 8%;
+  top: 10px;
   right: 3px;
   width: 250px;
   background: rgba(255, 255, 255, 0.9);
@@ -26,7 +25,7 @@
   z-index: 1;
   padding: 5px;
   border-radius: 10px;
-  top: 32%;
+  bottom: 22px;
   right: 3px;
   width: 230px;
   background: rgba(255, 255, 255, 0.9);
@@ -48,13 +47,16 @@
   line-height: 15px;
   padding: 5px;
   border-radius: 10px;
-  top: 115%;
+  border-style: solid;
+  border-color: black;
+  border-width: medium;
+  bottom: 43px;
   right: 2px;
   width: 230px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
-  font-size: .8em;
+  font-size: .7em;
 }
 
 ul, li {
@@ -68,12 +70,12 @@ ul, li {
   padding: 10px;
   line-height: 20px;
   padding: 10px;
-  border-radius: 2px;
-  top: 15%;
-  left: 16px;
+  border-radius: 10px;
+  top: 175px;
+  right: 2px;
   height: 33px;
   width: 35px;
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, .9);
   background-image: url("https://cdn4.iconfinder.com/data/icons/defaulticon/icons/png/256x256/layers.png");
   background-size: 50px;
   background-position: 50%;
@@ -91,7 +93,7 @@ ul, li {
   padding: 10px;
   border-radius: 10px;
   top: 16%;
-  left: 16px;
+  right: 16px;
   width: 200px;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);

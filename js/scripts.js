@@ -321,19 +321,8 @@ map.on('load', function() {
     })
 
     $('#aboutBox').click( function () {
-      $('#more').show(),
-      $('#aboutBox').hide()
-      }
-      // , function() {
-      //   $('#more').hide(),
-      //   $('#aboutBox').show()
-      // }
-    )
-    // $('#aboutBox').hover( function () {
-    //   (this).css('cursor','pointer')
-    //   }, function() {
-    //       $(this).css('cursor','auto')
-    // })
+      $('#more').toggle()
+    })
 
     var radioButton = $('#layerToggle')
 
@@ -348,5 +337,4 @@ map.on('load', function() {
           map.setLayoutProperty('demolishedHospitals', 'visibility', 'visible')
       } else { map.setLayoutProperty('demolishedHospitals', 'visibility', 'none')}
     })
-
 })
